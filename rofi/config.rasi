@@ -83,7 +83,7 @@ configuration {
 
 	/*---------- Misc setting ----------*/
 	terminal: "rofi-sensible-terminal";
-	font: "Mono 12";
+	font: "Mono 16";
 	sort: false;
 	threads: 0;
 	click-to-exit: true;
@@ -180,4 +180,6 @@ configuration {
 */
 }
 
-@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+
+@theme "/usr/share/rofi/themes/Monokai.rasi"

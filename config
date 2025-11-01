@@ -33,7 +33,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 
-exec --no-startup-id /home/flyofk/setup_monitors.sh
+#exec --no-startup-id /home/flyofk/Scripts/setup_monitors.sh
 
 workspace 1 output HDMI-0 
 workspace 2 output DP-0 
@@ -58,7 +58,7 @@ exec --no-startup-id nm-applet
 
 
 
-exec --no-startup-id ~/.config/polybar/launch.sh               
+#exec --no-startup-id ~/.config/polybar/launch.sh               
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -121,6 +121,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Copy paste
+#bindsym Ctrl+c exec --no-startup-id xclip -selection clipboard -i
+#bindsym Ctrl+v exec --no-startup-id xclip -selection clipboard -o
+
 # split in horizontal erientation
 bindsym $mod+b split horizontal
 
@@ -145,7 +149,14 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+z focus child
+
+
+# open apps
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+o exec obsidian
+bindsym $mod+Shift+z exec thunar
+bindsym $mod+Shift+d exec figma-linux 
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -230,8 +241,23 @@ bindsym $mod+r mode "resize"
 
 
 # bindsym $m
+
+exec --no-startup-id /home/flyofk/Scripts/setup_monitors.sh
+
                                             
-exec --no-startup-id bash -c "until xrandr >/dev/null 2>&1; do sleep 0.2; done; feh --bg-fill ~/Images/black-background.png"
+#exec --no-startup-id bash -c "until xrandr >/dev/null 2>&1; do sleep 0.2; done; feh --bg-fill ~/Images/black-background.png"
+
+
+exec --no-startup-id ~/.config/polybar/launch.sh
+
+#exec --no-startup-id bash -c "until xrandr >/dev/null 2>&1; do sleep 0.2; done; feh --bg-fill ~/Images/black-background.png"
+
+#exec --no-startup-id /home/flyofk/Scripts/setup_monitors.sh
+
+exec --no-startup-id "sleep 2 && feh --bg-fill ~/Images/black-background.png"
 
 
 exec --no-startup-id id=$(xsetwacom list devices | awk '/stylus/ {print $(NF-2)}' | head -n1) && xsetwacom set "$id" rotate half
+exec --no-startup-id xclip -selection clipboard
+#bindsym Ctrl+c exec --no-startup-id xclip -selection clipboard -i
+#bindsym Ctrl+v exec --no-startup-id xclip -selection clipboard -o

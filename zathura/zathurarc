@@ -1,0 +1,11 @@
+# Включение функции перекрашивания (recolor)
+set recolor true
+
+# Установка темного цвета фона (lightcolor в настройках zathura - это фон)
+set recolor-lightcolor "#1f1f1f"
+
+# Установка светлого цвета текста (darkcolor в настройках zathura - это текст)
+set recolor-darkcolor "#dcdccc"
+
+# Пример настройки цвета выделения для лучшей читаемости подсказок (например, ссылок)
+set highlight-color "#000000"
